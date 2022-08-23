@@ -58,7 +58,7 @@
                             class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i
                                 class="feather icon-menu font-large-1"></i></a></li>
                     <li class="nav-item"><a class="navbar-brand"
-                            href="html/ltr/vertical-menu-template-semi-dark/index.html"><img class="brand-logo"
+                            href="{{ route ('back.dashboard') }}"><img class="brand-logo"
                                 alt="stack admin logo" src="{{ asset ('public/back/app-assets/images/logo/stack-logo-light.png') }}">
                             <h2 class="brand-text">Stack</h2>
                         </a></li>
@@ -236,11 +236,11 @@
                         <li class="dropdown dropdown-user nav-item"><a
                                 class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                                 <div class="avatar avatar-online"><img
-                                        src="{{ asset ('public/back/app-assets/images/portrait/small/avatar-s-1.png') }}"
+                                        src="{{ Auth::user()->photo ? asset('assets/images/'.Auth::user()->photo) : asset ('public/back/app-assets/images/portrait/small/avatar-s-1.png') }}"
                                         alt="avatar"><i></i></div><span class="user-name">{{ Auth::user()->name }}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#"><i class="feather icon-user"></i> Edit Profile</a>
+                                <a class="dropdown-item" href="{{ route ('back.profile') }}"><i class="feather icon-user"></i> Edit Profile</a>
                                 <a class="dropdown-item" href="app-email.html"><i class="feather icon-mail"></i> My Inbox</a>
                                 <a class="dropdown-item" href="#"><i class="feather icon-check-square"></i> Task</a>
                                 <a class="dropdown-item" href="#"><i class="feather icon-message-square"></i> Chats</a>
@@ -354,11 +354,8 @@
     <!-- BEGIN: Theme JS-->
     <script src="{{ asset ('public/back/app-assets/js/core/app-menu.js') }}"></script>
     <script src="{{ asset ('public/back/app-assets/js/core/app.js') }}"></script>
+    <script src="{{ asset ('public/back/assets/js/scripts.js') }}"></script>
     <!-- END: Theme JS-->
-
-    <!-- BEGIN: Page JS-->
-    <script src="{{ asset ('public/back/app-assets/js/scripts/pages/dashboard-ecommerce.js') }}"></script>
-    <!-- END: Page JS-->
     @yield('script')
 
     <script>

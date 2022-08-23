@@ -8,3 +8,41 @@ NOTE:
 ------
 PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+.admin-img {
+	border-radius: 0px;
+	padding: 0px;
+	max-width: 150px;
+	max-height: 150px;
+	object-fit: cover;
+	margin: 0px;
+}
+
+.file-custom {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 5;
+	height: calc(2.75rem + 2px);
+	padding: 0.5rem 1rem;
+	line-height: 1.25;
+	color: #555;
+	background-color: #fff;
+	border: 0.075rem solid #ccd6e6;
+	border-radius: 0.25rem;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	overflow: hidden;
+}
+
+.phone::-webkit-inner-spin-button,
+.phone::-webkit-outer-spin-button {
+	-webkit-appearance: none !important;
+	margin: 0 !important;
+}
+
+.phone {
+	-moz-appearance: textfield !important;
+}

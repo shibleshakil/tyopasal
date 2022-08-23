@@ -680,5 +680,8 @@
     </div>
     <!--/ Basic Horizontal Timeline -->
 @endsection
-@section('content')
+@section('script')
+    <!-- BEGIN: Page JS-->
+    <script src="{{ asset ('public/back/app-assets/js/scripts/pages/dashboard-ecommerce.js') }}"></script>
+    <!-- END: Page JS-->
 @endsection
