@@ -9,7 +9,11 @@ NOTE:
 PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
 body.vertical-layout.vertical-menu.menu-collapsed .navbar .navbar-header .logo {
-	width: 58px;
+	width: 48px;
+}
+
+body.vertical-layout.vertical-menu.menu-collapsed .navbar-header {
+	padding: 0rem 7px;
 }
 
 .logo-div {
@@ -93,4 +97,11 @@ body.vertical-layout.vertical-menu.menu-collapsed .navbar .navbar-header .logo {
 	margin-bottom: 5px;
 	border: 1px solid #ccd6e6;
 	color: #585c5d;
+}
+
+img.admin-setting-img {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 5px;
+	width: 293px;
 }
