@@ -8,6 +8,19 @@ NOTE:
 ------
 PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+body.vertical-layout.vertical-menu.menu-collapsed .navbar .navbar-header .logo {
+	width: 58px;
+}
+
+.logo-div {
+	padding: 5px 0px !important;
+}
+
+.logo {
+	width: 130px;
+	height: 48px;
+}
+
 .admin-img {
 	border-radius: 0px;
 	padding: 0px;
@@ -45,4 +58,39 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 
 .phone {
 	-moz-appearance: textfield !important;
+}
+
+.nav-pills.flex-column .nav-link {
+	border-radius: 0 !important;
+	border: 1px solid #ccd6e6;
+	color: #585c5d;
+	margin-top: -1px;
+	text-align: center;
+	word-wrap: normal;
+	padding: 10px 0;
+}
+
+.nav-link.active {
+	color: #fff !important;
+}
+
+.nav-pills.nav-pills-no-bd li:first-child {
+	margin-left: 0 !important;
+}
+
+.nav-pills.nav-pills-no-bd li {
+	margin-left: 15px !important;
+}
+
+.nav-pills .nav-link {
+	padding: 10px 20px;
+}
+
+.nav-pills>li>.nav-link {
+	margin-left: -1px;
+	border-radius: 20px !important;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border: 1px solid #ccd6e6;
+	color: #585c5d;
 }

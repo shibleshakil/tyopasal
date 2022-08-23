@@ -38,5 +38,21 @@ Route::group(['middleware' => 'adminlocalize'], function(){
         Route::get('/password', 'App\Http\Controllers\Back\AccountController@passwordResetForm')->name('back.password');
         Route::post('/password/update', 'App\Http\Controllers\Back\AccountController@updatePassword')->name('back.password.update');
 
+        //------------ SETTING ------------
+        Route::get('/setting/menu', 'App\Http\Controllers\Back\SettingController@menu')->name('back.setting.menu');
+        Route::get('/setting/social', 'App\Http\Controllers\Back\SettingController@social')->name('back.setting.social');
+        Route::get('/setting/system', 'App\Http\Controllers\Back\SettingController@system')->name('back.setting.system');
+        Route::post('/setting/update', 'App\Http\Controllers\Back\SettingController@update')->name('back.setting.update');
+        Route::post('/setting/update/visiable', 'App\Http\Controllers\Back\SettingController@visiable')->name('back.setting.visible.update');
+        Route::get('/announcement', 'App\Http\Controllers\Back\SettingController@announcement')->name('back.subscribers.announcement');
+        Route::get('/cookie/alert', 'App\Http\Controllers\Back\SettingController@cookie')->name('back.cookie.alert');
+        Route::get('/maintainance', 'App\Http\Controllers\Back\SettingController@maintainance')->name('back.setting.maintainance');
+        
+        //------------ EMAIL TEMPLATE ------------
+        Route::get('/setting/email', 'App\Http\Controllers\Back\EmailSettingController@email')->name('back.setting.email');
+        Route::post('/setting/email/update', 'App\Http\Controllers\Back\EmailSettingController@emailUpdate')->name('back.email.update');
+        Route::get('email/template/{template}/edit', 'App\Http\Controllers\Back\EmailSettingController@edit')->name('back.template.edit');
+        Route::put('email/template/update/{template}', 'App\Http\Controllers\Back\EmailSettingController@update')->name('back.template.update');
+        
     });
 });
