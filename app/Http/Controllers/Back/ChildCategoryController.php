@@ -2,11 +2,33 @@
 
 namespace App\Http\Controllers\Back;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\{
+    Models\Category,
+    Repositories\Back\ChildCategoryRepository,
+    Http\Requests\ChildcategoryRequest,
+    Http\Controllers\Controller
+};
+use App\Models\ChildCategory;
+use App\Models\Subcategory;
+
 
 class ChildCategoryController extends Controller
 {
+    /**
+     * Constructor Method.
+     *
+     * Setting Authentication
+     *
+     * @param  \App\Repositories\Back\ChildCategoryRepository $repository
+     *
+     */
+    public function __construct(ChildCategoryRepository $repository)
+    {
+        $this->middleware('auth:admin');
+
+        $this->repository = $repository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +36,9 @@ class ChildCategoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('back.childcategory.index',[
+            'datas' => ChildCategory::with('category')->orderBy('id','desc')->get()
+        ]);
     }
 
     /**
@@ -24,7 +48,7 @@ class ChildCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.childcategory.create');
     }
 
     /**
@@ -33,21 +57,25 @@ class ChildCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ChildcategoryRequest $request)
     {
-        //
+        $this->repository->store($request);
+        return redirect()->route('back.childcategory.index')->withSuccess(__('New Childcategory Added Successfully.'));
     }
 
     /**
-     * Display the specified resource.
+     * Change the status for editing the specified resource.
      *
      * @param  int  $id
+     * @param  int  $status
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function status($id,$status)
     {
-        //
+        ChildCategory::find($id)->update(['status' => $status]);
+        return redirect()->route('back.childcategory.index')->withSuccess(__('Status Updated Successfully.'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -55,9 +83,10 @@ class ChildCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(ChildCategory $childcategory)
     {
-        //
+        
+        return view('back.childcategory.edit',compact('childcategory'));
     }
 
     /**
@@ -67,9 +96,10 @@ class ChildCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ChildCategoryRequest $request, ChildCategory $childcategory)
     {
-        //
+        $this->repository->update($childcategory, $request);
+        return redirect()->route('back.childcategory.index')->withSuccess(__('Childcategory Updated Successfully.'));
     }
 
     /**
@@ -78,8 +108,9 @@ class ChildCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(ChildCategory $childcategory)
     {
-        //
+        $this->repository->delete($childcategory);
+        return redirect()->route('back.childcategory.index')->withSuccess(__('Childcategory Deleted Successfully.'));
     }
 }

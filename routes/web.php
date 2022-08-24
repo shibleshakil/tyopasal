@@ -66,8 +66,11 @@ Route::group(['middleware' => 'adminlocalize'], function(){
 
             //------------ CHILD CATEGORY ------------
             Route::get('childcategory/status/{id}/{status}', 'App\Http\Controllers\Back\ChildCategoryController@status')->name('back.childcategory.status');
-            Route::resource('childcategory', 'App\Http\Controllers\Back\ChieldCategoryController', ['as' => 'back', 'except' => 'show']);
+            Route::resource('childcategory', 'App\Http\Controllers\Back\ChildCategoryController', ['as' => 'back', 'except' => 'show']);
         // });
+
+        //common
+        Route::get('get/subcategory', 'App\Http\Controllers\Back\CommonController@getsubCategory')->name('back.get.subcategory');
         
     });
 });
