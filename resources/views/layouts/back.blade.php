@@ -297,6 +297,16 @@
                     </ul>
                 </li>
                 <li class=" nav-item">
+                    <a href="#"><i class="feather icon-list"></i>
+                        <span class="menu-title" data-i18n="Manage Products">Manage Products</span>
+                    </a>
+                    <ul class="menu-content">
+                        <li @if($url == 'back.brand.index') class="active" @endif>
+                            <a class="menu-item" href="{{ route ('back.brand.index') }}" data-i18n="Brands">Brands</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item">
                     <a href="#"><i class="fa fa-tasks"></i>
                         <span class="menu-title" data-i18n="Manage Site">Manage Site</span>
                     </a>

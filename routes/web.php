@@ -69,6 +69,11 @@ Route::group(['middleware' => 'adminlocalize'], function(){
             Route::resource('childcategory', 'App\Http\Controllers\Back\ChildCategoryController', ['as' => 'back', 'except' => 'show']);
         // });
 
+        // Route::group(['middleware' => 'permissions:Manage Products'], function () {
+            //------------ BRAND ------------
+            Route::get('brand/status/{id}/{status}/{type}', 'App\Http\Controllers\Back\BrandController@status')->name('back.brand.status');
+            Route::resource('brand', 'App\Http\Controllers\Back\BrandController', ['as' => 'back', 'except' => 'show']);
+        // });
         //common
         Route::get('get/subcategory', 'App\Http\Controllers\Back\CommonController@getsubCategory')->name('back.get.subcategory');
         
