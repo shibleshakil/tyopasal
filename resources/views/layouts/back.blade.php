@@ -281,20 +281,7 @@
                     </a>
                 </li>
                 <li class=" nav-item">
-                    <a href="#"><i class="feather icon-align-left"></i>
-                        <span class="menu-title" data-i18n="Manage Site">Manage Site</span>
-                    </a>
-                    <ul class="menu-content">
-                        <li @if($url == 'back.setting.system') class="active" @endif>
-                            <a class="menu-item" href="{{ route ('back.setting.system') }}" data-i18n="General Settings">General Settings</a>
-                        </li>
-                        <li @if($url == 'back.setting.email') class="active" @endif>
-                            <a class="menu-item" href="{{ route ('back.setting.email') }}" data-i18n="Email Settings">Email Settings</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class=" nav-item">
-                    <a href="#"><i class="feather icon-align-left"></i>
+                    <a href="#"><i class="feather icon-list"></i>
                         <span class="menu-title" data-i18n="Manage Category">Manage Category</span>
                     </a>
                     <ul class="menu-content">
@@ -306,6 +293,19 @@
                         </li>
                         <li @if($url == 'back.childcategory.index') class="active" @endif>
                             <a class="menu-item" href="{{ route ('back.childcategory.index') }}" data-i18n="Child Categories">Child Categories</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item">
+                    <a href="#"><i class="fa fa-tasks"></i>
+                        <span class="menu-title" data-i18n="Manage Site">Manage Site</span>
+                    </a>
+                    <ul class="menu-content">
+                        <li @if($url == 'back.setting.system') class="active" @endif>
+                            <a class="menu-item" href="{{ route ('back.setting.system') }}" data-i18n="General Settings">General Settings</a>
+                        </li>
+                        <li @if($url == 'back.setting.email') class="active" @endif>
+                            <a class="menu-item" href="{{ route ('back.setting.email') }}" data-i18n="Email Settings">Email Settings</a>
                         </li>
                     </ul>
                 </li>
