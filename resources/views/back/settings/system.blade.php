@@ -11,7 +11,7 @@
                     <ol class="breadcrumb pull-right">
                         <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
                         <li class="breadcrumb-item"><a href="#">Manage Site</a></li>
-                        <li class="breadcrumb-item active"><a href="#">{{ __('Basic Information') }}</a></li>
+                        <li class="breadcrumb-item active"><a href="#">{{ __('General Settings') }}</a></li>
                     </ol>
                 </div>
             </div>
@@ -247,7 +247,6 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 @endsection
 @section('script')

@@ -10,6 +10,7 @@ use App\{
     Models\Setting
 };
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use PHPMailer\PHPMailer\{
     PHPMailer,
@@ -29,7 +30,6 @@ class EmailHelper
         $this->mail = new PHPMailer(true);
 
         if($this->setting->smtp_check == 1){
-
             $this->mail->isSMTP();
             $this->mail->Host       = $this->setting->email_host;
             $this->mail->SMTPAuth   = true;
@@ -39,6 +39,18 @@ class EmailHelper
             $this->mail->Port       = $this->setting->email_port;
 
         }
+
+        // config env for send mail
+        $_ENV['MAIL_DRIVER'] = 'smtp';
+        $_ENV['MAIL_HOST'] = $this->setting->email_host;
+        $_ENV['MAIL_PORT'] = $this->setting->email_port;
+        $_ENV['MAIL_USERNAME'] = $this->setting->email_user;
+        $_ENV['MAIL_PASSWORD'] =  $this->setting->email_pass;
+        $_ENV['MAIL_ENCRYPTION'] = $this->setting->email_encryption;
+        $_ENV['MAIL_FROM_ADDRESS'] = $this->setting->email_from;
+        $_ENV['MAIL_FROM_NAME'] = $this->setting->title;
+
+        // dd($_ENV['MAIL_FROM_ADDRESS']);
     }
 
     public function sendTemplateMail(array $emailData)
@@ -67,17 +79,26 @@ class EmailHelper
     public function sendCustomMail(array $emailData)
     {
         try{
-
-            $this->mail->setFrom($this->setting->email_from, $this->setting->email_from_name);
-            $this->mail->addAddress($emailData['to']);
-            $this->mail->isHTML(true);
-            $this->mail->Subject = $emailData['subject'];
-            $this->mail->Body = $emailData['body'];
-            $this->mail->send();
+            if($this->setting->smtp_check == 1){
+                $this->mail->setFrom($this->setting->email_from, $this->setting->email_from_name);
+                $this->mail->addAddress($emailData['to']);
+                $this->mail->isHTML(true);
+                $this->mail->Subject = $emailData['subject'];
+                $this->mail->Body = $emailData['body'];
+                $this->mail->send();
+            }else{
+                // dd($_ENV['MAIL_HOST']);
+                Mail::send(array(), array(), function ($message) use ($emailData) {
+                    $message->to($emailData['to'])
+                      ->subject($emailData['subject'])
+                      // here comes what you want
+                      ->setBody($emailData['body'] , 'text/html'); // for HTML rich messages
+                });
+            }
 
         }
         catch (Exception $e){
-           // dd($e->getMessage());
+           dd($e->getMessage());
         }
 
         return true;

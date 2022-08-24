@@ -28,6 +28,7 @@ class ForgotRepository
             'subject' => $subject,
             'body' => $msg,
         ];
+        // dd($emailData);
         $email = new EmailHelper();
         $email->sendCustomMail($emailData);
     }

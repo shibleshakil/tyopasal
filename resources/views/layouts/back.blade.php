@@ -286,7 +286,7 @@
                             <a class="menu-item" href="{{ route ('back.setting.system') }}" data-i18n="General Settings">General Settings</a>
                         </li>
                         <li>
-                            <a class="menu-item" href="#" data-i18n="Email Settings">Email Settings</a>
+                            <a class="menu-item" href="{{ route ('back.setting.email') }}" data-i18n="Email Settings">Email Settings</a>
                         </li>
                     </ul>
                 </li>
