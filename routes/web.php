@@ -54,5 +54,20 @@ Route::group(['middleware' => 'adminlocalize'], function(){
         Route::get('email/template/{template}/edit', 'App\Http\Controllers\Back\EmailSettingController@edit')->name('back.template.edit');
         Route::put('email/template/update/{template}', 'App\Http\Controllers\Back\EmailSettingController@update')->name('back.template.update');
         
+        // Route::group(['middleware' => 'permissions:Manage Categories'], function () {
+            //------------ CATEGORY ------------
+            Route::get('category/status/{id}/{status}', 'App\Http\Controllers\Back\CategoryController@status')->name('back.category.status');
+            Route::get('category/feature/{id}/{status}', 'App\Http\Controllers\Back\CategoryController@feature')->name('back.category.feature');
+            Route::resource('category', 'App\Http\Controllers\Back\CategoryController', ['as' => 'back', 'except' => 'show']);
+
+            //------------ SUB CATEGORY ------------
+            Route::get('subcategory/status/{id}/{status}', 'App\Http\Controllers\Back\SubCategoryController@status')->name('back.subcategory.status');
+            Route::resource('subcategory', 'App\Http\Controllers\Back\SubCategoryController', ['as' => 'back', 'except' => 'show']);
+
+            //------------ CHILD CATEGORY ------------
+            Route::get('childcategory/status/{id}/{status}', 'App\Http\Controllers\Back\ChildCategoryController@status')->name('back.childcategory.status');
+            Route::resource('childcategory', 'App\Http\Controllers\Back\ChieldCategoryController', ['as' => 'back', 'except' => 'show']);
+        // });
+        
     });
 });

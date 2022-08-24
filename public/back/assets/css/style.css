@@ -105,3 +105,22 @@ img.admin-setting-img {
 	padding: 5px;
 	width: 293px;
 }
+
+@media (max-width: 767.98px) {
+
+	.navbar-dark .navbar-header .navbar-nav .nav-link,
+	.navbar-semi-dark .navbar-header .navbar-nav .nav-link {
+		color: #1b2942;
+	}
+}
+
+.table thead th,
+.table tbody td {
+	vertical-align: middle;
+}
+
+.table.table-bordered img {
+	max-width: 70px;
+	max-height: 70px;
+	object-fit: cover;
+}

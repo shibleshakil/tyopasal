@@ -16,6 +16,8 @@
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset ('public/back/app-assets/vendors/css/vendors.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('public/back/app-assets/vendors/js/ui/jquery-ui.min.js') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('public/back/app-assets/vendors/css/tables/datatable/datatables.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset ('public/back/app-assets/vendors/css/extensions/unslider.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset ('public/back/app-assets/vendors/css/weather-icons/climacons.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset ('public/back/app-assets/fonts/meteocons/style.css') }}">
@@ -37,6 +39,7 @@
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="{{ asset ('public/back/assets/css/tagify.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset ('public/back/assets/css/style.css') }}">
     <!-- END: Custom CSS-->
 
@@ -264,7 +267,7 @@
     </nav>
     <!-- END: Header-->
 
-
+    <?php $url = Route::currentRouteName(); ?>
     <!-- BEGIN: Main Menu-->
     <div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow" data-scroll-to-active="true">
         <div class="main-menu-content">
@@ -272,7 +275,7 @@
                 <!-- <li class=" navigation-header">
                     <span>General</span><i class=" feather icon-minus" data-toggle="tooltip" data-placement="right" data-original-title="General"></i>
                 </li> -->
-                <li class="active nav-item">
+                <li @if($url == 'back.dashboard') class="active nav-item" @else class="nav-item" @endif>
                     <a href="{{ route ('back.dashboard') }}"><i class="feather icon-home"></i>
                         <span class="menu-title" data-i18n="Dashboard">Dashboard</span>
                     </a>
@@ -282,11 +285,21 @@
                         <span class="menu-title" data-i18n="Manage Site">Manage Site</span>
                     </a>
                     <ul class="menu-content">
-                        <li>
+                        <li @if($url == 'back.setting.system') class="active" @endif>
                             <a class="menu-item" href="{{ route ('back.setting.system') }}" data-i18n="General Settings">General Settings</a>
                         </li>
-                        <li>
+                        <li @if($url == 'back.setting.email') class="active" @endif>
                             <a class="menu-item" href="{{ route ('back.setting.email') }}" data-i18n="Email Settings">Email Settings</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item">
+                    <a href="#"><i class="feather icon-align-left"></i>
+                        <span class="menu-title" data-i18n="Manage Category">Manage Category</span>
+                    </a>
+                    <ul class="menu-content">
+                        <li @if($url == 'back.category.index') class="active" @endif>
+                            <a class="menu-item" href="{{ route ('back.category.index') }}" data-i18n="Categories">Categories</a>
                         </li>
                     </ul>
                 </li>
@@ -351,6 +364,8 @@
     <!-- BEGIN: Theme JS-->
     <script src="{{ asset ('public/back/app-assets/js/core/app-menu.js') }}"></script>
     <script src="{{ asset ('public/back/app-assets/js/core/app.js') }}"></script>
+    <script src="{{ asset ('public/back/assets/js/tagify.js') }}"></script>
+    <script src="{{ asset ('public/back/assets/js/datatable.js') }}"></script>
     <script src="{{ asset ('public/back/assets/js/scripts.js') }}"></script>
     <!-- END: Theme JS-->
     @yield('script')
