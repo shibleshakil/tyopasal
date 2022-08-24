@@ -18,7 +18,7 @@ class CreateSubcategoriesTable extends Migration
             $table->string('name')->nullable();
             $table->string('slug')->nullable();
             $table->integer('category_id');
-            $table->tinyInteger('status')->default(0)->nullable();
+            $table->tinyInteger('status')->default()->nullable();
             $table->timestamps();
         });
     }

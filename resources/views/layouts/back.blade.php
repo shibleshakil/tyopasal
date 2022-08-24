@@ -301,6 +301,9 @@
                         <li @if($url == 'back.category.index') class="active" @endif>
                             <a class="menu-item" href="{{ route ('back.category.index') }}" data-i18n="Categories">Categories</a>
                         </li>
+                        <li @if($url == 'back.subcategory.index') class="active" @endif>
+                            <a class="menu-item" href="{{ route ('back.subcategory.index') }}" data-i18n="Sub Categories">Sub Categories</a>
+                        </li>
                     </ul>
                 </li>
                 <li class=" nav-item">

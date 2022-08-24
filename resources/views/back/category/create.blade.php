@@ -79,8 +79,6 @@
                                     <div class="form-group">
                                         <button type="submit" id="submitBtn" class="btn btn-secondary ">{{ __('Submit') }}</button>
                                     </div>
-
-                                    <div>
                                 </form>
                             </div>
                         </div>

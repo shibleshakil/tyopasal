@@ -13,7 +13,7 @@
 
             <!-- Modal Body -->
             <div class="modal-body">
-                {{ __('You are going to delete this category. All contents related with this category will be lost.') }}
+                {{ __('You are going to delete this subcategory. All contents related with this category will be lost.') }}
                 {{ __('Do you want to delete it?') }}
             </div>
 

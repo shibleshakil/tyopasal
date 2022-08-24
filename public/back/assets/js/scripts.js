@@ -28,7 +28,7 @@
     let $this = $(this);
     let str = $this.val().replace(/[0-9`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-').replace(/ /g, '-');
 
-    $('#slug').val(str.toLowerCase());
+    $('#slug').val(str);
   });
 
   // Tagify

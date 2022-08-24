@@ -2,11 +2,31 @@
 
 namespace App\Http\Controllers\Back;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\{
+    Models\Category,
+    Repositories\Back\SubCategoryRepository,
+    Http\Requests\SubCategoryRequest,
+    Http\Controllers\Controller
+};
+use App\Models\Subcategory;
 
 class SubCategoryController extends Controller
 {
+    /**
+     * Constructor Method.
+     *
+     * Setting Authentication
+     *
+     * @param  \App\Repositories\Back\SubCategoryRepository $repository
+     *
+     */
+    public function __construct(SubCategoryRepository $repository)
+    {
+        $this->middleware('auth:admin');
+
+        $this->repository = $repository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +34,9 @@ class SubCategoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('back.subcategory.index',[
+            'datas' => Subcategory::with('category')->orderBy('id','desc')->get()
+        ]);
     }
 
     /**
@@ -24,7 +46,7 @@ class SubCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.subcategory.create');
     }
 
     /**
@@ -33,21 +55,25 @@ class SubCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SubCategoryRequest $request)
     {
-        //
+        $this->repository->store($request);
+        return redirect()->route('back.subcategory.index')->withSuccess(__('New Subcategory Added Successfully.'));
     }
 
     /**
-     * Display the specified resource.
+     * Change the status for editing the specified resource.
      *
      * @param  int  $id
+     * @param  int  $status
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function status($id,$status)
     {
-        //
+        Subcategory::find($id)->update(['status' => $status]);
+        return redirect()->route('back.subcategory.index')->withSuccess(__('Status Updated Successfully.'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -55,9 +81,10 @@ class SubCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Subcategory $subcategory)
     {
-        //
+        
+        return view('back.subcategory.edit',compact('subcategory'));
     }
 
     /**
@@ -67,9 +94,10 @@ class SubCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SubCategoryRequest $request, Subcategory $subcategory)
     {
-        //
+        $this->repository->update($subcategory, $request);
+        return redirect()->route('back.subcategory.index')->withSuccess(__('Subcategory Updated Successfully.'));
     }
 
     /**
@@ -78,8 +106,9 @@ class SubCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Subcategory $subcategory)
     {
-        //
+        $this->repository->delete($subcategory);
+        return redirect()->route('back.subcategory.index')->withSuccess(__('Subcategory Deleted Successfully.'));
     }
 }
