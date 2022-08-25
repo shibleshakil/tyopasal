@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset ('public/back/app-assets/vendors/css/weather-icons/climacons.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset ('public/back/app-assets/fonts/meteocons/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset ('public/back/app-assets/vendors/css/charts/morris.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -307,6 +308,19 @@
                     </ul>
                 </li>
                 <li class=" nav-item">
+                    <a href="#"><i class="fa fa-tasks"></i>
+                        <span class="menu-title" data-i18n="Manage Site">Manage Site</span>
+                    </a>
+                    <ul class="menu-content">
+                        <li @if($url == 'back.setting.system') class="active" @endif>
+                            <a class="menu-item" href="{{ route ('back.setting.system') }}" data-i18n="General Settings">General Settings</a>
+                        </li>
+                        <li @if($url == 'back.setting.email') class="active" @endif>
+                            <a class="menu-item" href="{{ route ('back.setting.email') }}" data-i18n="Email Settings">Email Settings</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item">
                     <a href="#"><i class="fa fa-question-circle"></i>
                         <span class="menu-title" data-i18n="Manage Faqs">Manage Faqs</span>
                     </a>
@@ -320,15 +334,15 @@
                     </ul>
                 </li>
                 <li class=" nav-item">
-                    <a href="#"><i class="fa fa-tasks"></i>
-                        <span class="menu-title" data-i18n="Manage Site">Manage Site</span>
+                    <a href="#"><i class="fa fa-question-circle"></i>
+                        <span class="menu-title" data-i18n="Manage Blogs">Manage Blogs</span>
                     </a>
                     <ul class="menu-content">
-                        <li @if($url == 'back.setting.system') class="active" @endif>
-                            <a class="menu-item" href="{{ route ('back.setting.system') }}" data-i18n="General Settings">General Settings</a>
+                        <li @if($url == 'back.bcategory.index') class="active" @endif>
+                            <a class="menu-item" href="{{ route ('back.bcategory.index') }}" data-i18n="Categories">Categories</a>
                         </li>
-                        <li @if($url == 'back.setting.email') class="active" @endif>
-                            <a class="menu-item" href="{{ route ('back.setting.email') }}" data-i18n="Email Settings">Email Settings</a>
+                        <li @if($url == 'back.post.index') class="active" @endif>
+                            <a class="menu-item" href="{{ route ('back.post.index') }}" data-i18n="Blogs">Blogs</a>
                         </li>
                     </ul>
                 </li>
@@ -371,13 +385,14 @@
     <!-- BEGIN: Footer-->
     <footer class="footer footer-static footer-light navbar-border">
         <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span
-                class="float-md-left d-block d-md-inline-block">Copyright &copy; {{date('Y')}} </p>
+                class="float-md-left d-block d-md-inline-block">Tyo Pasal &copy; {{date('Y')}} {{__('All Rights Reserved')}}</p>
     </footer>
     <!-- END: Footer-->
 
 
     <!-- BEGIN: Vendor JS-->
     <script src="{{ asset ('public/back/app-assets/vendors/js/vendors.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->

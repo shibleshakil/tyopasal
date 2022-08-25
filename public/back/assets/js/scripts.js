@@ -41,6 +41,37 @@
     $(this).find('.btn-ok').attr('action', $(e.relatedTarget).data('href'));
   });
 
+  // editor
+  if ($('.text-editor').length > 0) {
+
+    $('.text-editor').summernote({
+      toolbar: [
+        ['style', ['style']],
+        ['font', ['bold', 'underline', 'clear']],
+        ['fontname', ['fontname']],
+        ['color', ['color']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['table', ['table']],
+        ['insert', ['link', 'picture', 'video']],
+        ['view', ['fullscreen']],
+      ]
+    });
+
+  }
+
+  // bulk delete start 
+
+  $(document).on('change', '.bulk_all_delete', function () {
+    let target = $(this).attr('data-target');
+    if ($(this).is(':checked')) {
+      $('#' + target + ' .bulk-item').prop('checked', true);
+    } else {
+      $('#' + target + ' .bulk-item').prop('checked', false);
+    }
+
+    bulk_select(target);
+  });
+
 })(window);
 
 $(document).on('change', '#category_id', function () {
@@ -77,4 +108,17 @@ function getCategory(url, category_id) {
     let start = `<option value="">Select One</option>`;
     $('#subcategory_id').html(start + view_html);
   })
+}
+
+$(document).on('change', '#blog-bulk-delete input.bulk-item', function () {
+  bulk_select('blog-bulk-delete');
+})
+
+
+function bulk_select(target) {
+  var selected = [];
+  $('#' + target + ' input:checked').each(function () {
+    selected.push($(this).val());
+  });
+  $('#bulk_delete').val(selected);
 }

@@ -54,6 +54,8 @@ Route::group(['middleware' => 'adminlocalize'], function(){
         Route::get('email/template/{template}/edit', 'App\Http\Controllers\Back\EmailSettingController@edit')->name('back.template.edit');
         Route::put('email/template/update/{template}', 'App\Http\Controllers\Back\EmailSettingController@update')->name('back.template.update');
         
+        // bulk delete
+        Route::get('bulk/deletes', 'App\Http\Controllers\Back\BulkDeleteController@bulkDelete')->name('back.bulk.delete');
         // Route::group(['middleware' => 'permissions:Manage Categories'], function () {
             //------------ CATEGORY ------------
             Route::get('category/status/{id}/{status}', 'App\Http\Controllers\Back\CategoryController@status')->name('back.category.status');
@@ -86,6 +88,16 @@ Route::group(['middleware' => 'adminlocalize'], function(){
             Route::resource('faq', 'App\Http\Controllers\Back\FaqController', ['as' => 'back', 'except' => 'show']);
         // });
 
+        // Route::group(['middleware' => 'permissions:Manage Blogs'], function () {
+            //------------ CATEGORY ------------
+            Route::get('bcategory/status/{id}/{status}', 'App\Http\Controllers\Back\BcategoryController@status')->name('back.bcategory.status');
+            Route::resource('bcategory', 'App\Http\Controllers\Back\BcategoryController', ['as' => 'back', 'except' => 'show']);
+
+            //------------ POST ------------
+            Route::resource('post', 'App\Http\Controllers\Back\PostController', ['as' => 'back', 'except' => 'show']);
+            Route::delete('post/delete/{key}/{id}', 'App\Http\Controllers\Back\PostController@delete')->name('back.post.photo.delete');
+            
+        // });
         //common
         Route::get('get/subcategory', 'App\Http\Controllers\Back\CommonController@getsubCategory')->name('back.get.subcategory');
         
