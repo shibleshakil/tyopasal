@@ -45,6 +45,7 @@
   if ($('.text-editor').length > 0) {
 
     $('.text-editor').summernote({
+      minHeight: 200,
       toolbar: [
         ['style', ['style']],
         ['font', ['bold', 'underline', 'clear']],
@@ -54,7 +55,7 @@
         ['table', ['table']],
         ['insert', ['link', 'picture', 'video']],
         ['view', ['fullscreen']],
-      ]
+      ],
     });
 
   }

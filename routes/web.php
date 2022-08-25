@@ -98,6 +98,12 @@ Route::group(['middleware' => 'adminlocalize'], function(){
             Route::delete('post/delete/{key}/{id}', 'App\Http\Controllers\Back\PostController@delete')->name('back.post.photo.delete');
             
         // });
+        // Route::group(['middleware' => 'permissions:Manages Pages'], function () {
+
+            //------------ PAGE ------------
+            Route::get('page/pos/{id}/{pos}', 'App\Http\Controllers\Back\PageController@pos')->name('back.page.pos');
+            Route::resource('page', 'App\Http\Controllers\Back\PageController', ['as' => 'back', 'except' => 'show']);
+        // });
         //common
         Route::get('get/subcategory', 'App\Http\Controllers\Back\CommonController@getsubCategory')->name('back.get.subcategory');
         

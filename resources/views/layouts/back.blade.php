@@ -286,13 +286,13 @@
                         <span class="menu-title" data-i18n="Manage Category">Manage Category</span>
                     </a>
                     <ul class="menu-content">
-                        <li @if($url == 'back.category.index') class="active" @endif>
+                        <li @if($url == 'back.category.index' || $url == 'back.category.create' || $url == 'back.category.edit') class="active" @endif>
                             <a class="menu-item" href="{{ route ('back.category.index') }}" data-i18n="Categories">Categories</a>
                         </li>
-                        <li @if($url == 'back.subcategory.index') class="active" @endif>
+                        <li @if($url == 'back.subcategory.index' || $url == 'back.subcategory.create' || $url == 'back.subcategory.edit') class="active" @endif>
                             <a class="menu-item" href="{{ route ('back.subcategory.index') }}" data-i18n="Sub Categories">Sub Categories</a>
                         </li>
-                        <li @if($url == 'back.childcategory.index') class="active" @endif>
+                        <li @if($url == 'back.childcategory.index' || $url == 'back.childcategory.create' || $url == 'back.childcategory.edit') class="active" @endif>
                             <a class="menu-item" href="{{ route ('back.childcategory.index') }}" data-i18n="Child Categories">Child Categories</a>
                         </li>
                     </ul>
@@ -302,7 +302,7 @@
                         <span class="menu-title" data-i18n="Manage Products">Manage Products</span>
                     </a>
                     <ul class="menu-content">
-                        <li @if($url == 'back.brand.index') class="active" @endif>
+                        <li @if($url == 'back.brand.index' || $url == 'back.brand.create' || $url == 'back.brand.edit') class="active" @endif>
                             <a class="menu-item" href="{{ route ('back.brand.index') }}" data-i18n="Brands">Brands</a>
                         </li>
                     </ul>
@@ -325,26 +325,31 @@
                         <span class="menu-title" data-i18n="Manage Faqs">Manage Faqs</span>
                     </a>
                     <ul class="menu-content">
-                        <li @if($url == 'back.fcategory.index') class="active" @endif>
+                        <li @if($url == 'back.fcategory.index' || $url == 'back.fcategory.create' || $url == 'back.fcategory.edit') class="active" @endif>
                             <a class="menu-item" href="{{ route ('back.fcategory.index') }}" data-i18n="Categories">Categories</a>
                         </li>
-                        <li @if($url == 'back.faq.index') class="active" @endif>
+                        <li @if($url == 'back.faq.index' || $url == 'back.faq.create' || $url == 'back.faq.edit') class="active" @endif>
                             <a class="menu-item" href="{{ route ('back.faq.index') }}" data-i18n="Faqs">Faqs</a>
                         </li>
                     </ul>
                 </li>
                 <li class=" nav-item">
-                    <a href="#"><i class="fa fa-question-circle"></i>
+                    <a href="#"><i class="fa fa-flickr"></i>
                         <span class="menu-title" data-i18n="Manage Blogs">Manage Blogs</span>
                     </a>
                     <ul class="menu-content">
-                        <li @if($url == 'back.bcategory.index') class="active" @endif>
+                        <li @if($url == 'back.bcategory.index' || $url == 'back.bcategory.create' || $url == 'back.bcategory.edit') class="active" @endif>
                             <a class="menu-item" href="{{ route ('back.bcategory.index') }}" data-i18n="Categories">Categories</a>
                         </li>
-                        <li @if($url == 'back.post.index') class="active" @endif>
+                        <li @if($url == 'back.post.index' || $url == 'back.post.create' || $url == 'back.post.edit') class="active" @endif>
                             <a class="menu-item" href="{{ route ('back.post.index') }}" data-i18n="Blogs">Blogs</a>
                         </li>
                     </ul>
+                </li>
+                <li @if($url == 'back.page.index' || $url == 'back.page.create' || $url == 'back.page.edit') class="active nav-item" @else class="nav-item" @endif>
+                    <a href="{{ route ('back.page.index') }}"><i class="fa fa-book"></i>
+                        <span class="menu-title" data-i18n="Manage Pages">Manage Pages</span>
+                    </a>
                 </li>
                 <li class=" nav-item">
                     <a href="#"><i class="feather icon-align-left"></i>
