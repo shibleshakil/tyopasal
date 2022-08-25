@@ -74,6 +74,18 @@ Route::group(['middleware' => 'adminlocalize'], function(){
             Route::get('brand/status/{id}/{status}/{type}', 'App\Http\Controllers\Back\BrandController@status')->name('back.brand.status');
             Route::resource('brand', 'App\Http\Controllers\Back\BrandController', ['as' => 'back', 'except' => 'show']);
         // });
+
+        
+        // Route::group(['middleware' => 'permissions:Manage Faqs Contents'], function () {
+
+            //------------ FAQ CATEGORY ------------
+            Route::get('faq-category/status/{id}/{status}', 'App\Http\Controllers\Back\FcategoryController@status')->name('back.fcategory.status');
+            Route::resource('fcategory', 'App\Http\Controllers\Back\FcategoryController', ['as' => 'back', 'except' => 'show']);
+
+            //------------ FAQ ------------
+            Route::resource('faq', 'App\Http\Controllers\Back\FaqController', ['as' => 'back', 'except' => 'show']);
+        // });
+
         //common
         Route::get('get/subcategory', 'App\Http\Controllers\Back\CommonController@getsubCategory')->name('back.get.subcategory');
         

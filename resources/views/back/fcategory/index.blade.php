@@ -6,8 +6,8 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-sm-flex align-items-center justify-content-between">
-                    <h3 class="mb-0 pl-3"><b>{{ __('Child Categories') }}</b> </h3>
-                    <a class="btn btn-primary btn-md" href="{{ route ('back.childcategory.create') }}"><i class="fa fa-plus"></i> Add</a>
+                    <h3 class="mb-0 pl-3"><b>{{ __('Categories') }}</b> </h3>
+                    <a class="btn btn-primary btn-md" href="{{ route ('back.fcategory.create') }}"><i class="fa fa-plus"></i> Add</a>
                 </div>
             </div>
         </div>
@@ -25,15 +25,14 @@
                                     <table class="table table-striped table-bordered datatable">
                                         <thead>
                                             <tr>
-                                                <th>{{ __('Category') }}</th>
-                                                <th>{{ __('Subcategory') }}</th>
                                                 <th>{{ __('Name') }}</th>
+                                                <th width="40%">{{ __('Text') }}</th>
                                                 <th>{{ __('Status') }}</th>
                                                 <th>{{ __('Actions') }}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @include('back.childcategory.table')
+                                            @include('back.fcategory.table')
                                         </tbody>
                                     </table>
                                 </div>
@@ -46,7 +45,7 @@
         <!--/ Configuration option table -->
     </div>
 </div>
-@include('back.childcategory.delete_modal')
+@include('back.fcategory.delete_modal')
 
 @endsection
 @section('script')

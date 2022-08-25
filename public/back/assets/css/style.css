@@ -124,3 +124,7 @@ img.admin-setting-img {
 	max-height: 70px;
 	object-fit: cover;
 }
+
+.card {
+	border-radius: 5px;
+}

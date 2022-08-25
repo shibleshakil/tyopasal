@@ -6,8 +6,8 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-sm-flex align-items-center justify-content-between">
-                    <h3 class="mb-0 pl-3"><b>{{ __('Create Brand') }}</b> </h3>
-                    <a class="btn btn-primary btn-md" href="{{ route ('back.brand.index') }}"><i class="fa fa-chevron-left"></i> Back</a>
+                    <h3 class="mb-0 pl-3"><b>{{ __('Create Categories') }}</b> </h3>
+                    <a class="btn btn-primary btn-md" href="{{ route ('back.fcategory.index') }}"><i class="fa fa-chevron-left"></i> Back</a>
                 </div>
             </div>
         </div>
@@ -20,38 +20,46 @@
                         <!-- Nested Row within Card Body -->
                         <div class="row justify-content-center">
                             <div class="col-lg-12">
-                                <form class="admin-form form" action="{{ route('back.brand.store') }}" method="POST"
+                                <form class="admin-form form" action="{{ route('back.fcategory.store') }}" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
                                     @include('alerts.alerts')
 
                                     <div class="form-group">
-										<label for="name">{{ __('Set Image') }} *</label>
-										<br>
-											<img class="admin-img" src="{{  asset('assets/images/placeholder.png') }}"
-												alt="No Image Found">
-										<br>
-										<span class="mt-1">{{ __('Image Size Should Be 110 x 81.') }}</span>
-									</div>
-
-									<div class="form-group position-relative">
-										<label class="file">
-											<input type="file"  accept="image/*"  class="upload-photo" name="photo" id="file"
-												aria-label="File browser example">
-											<span class="file-custom text-left">{{ __('Upload Image...') }}</span>
-										</label>
-                                    </div>
-
-									<div class="form-group">
 										<label for="name">{{ __('Name') }} *</label>
 										<input type="text" name="name" class="form-control item-name" id="name"
-											placeholder="{{ __('Enter Name') }}" value="{{ old('name') }}">
+											placeholder="{{ __('Enter Name') }}" value="{{ old('name') }}" required>
 									</div>
 
 									<div class="form-group">
 										<label for="slug">{{ __('Slug') }} *</label>
 										<input type="text" name="slug" class="form-control" id="slug"
-											placeholder="{{ __('Enter Slug') }}" value="{{ old('slug') }}">
+											placeholder="{{ __('Enter Slug') }}" value="{{ old('slug') }}" required>
+									</div>
+
+									<div class="form-group">
+										<label for="text">{{ __('Text') }} *</label>
+										<input type="text" name="text" class="form-control" id="text"
+											placeholder="{{ __('Text') }}" value="{{ old('text') }}" required>
+									</div>
+
+									<div class="form-group">
+										<label for="meta_keywords">{{ __('Meta Keywords') }}
+											</label>
+										<input type="text" name="meta_keywords" class="tags"
+											id="meta_keywords"
+											placeholder="{{ __('Enter Meta Keywords') }}"
+											value="">
+									</div>
+
+									<div class="form-group">
+										<label
+											for="meta_description">{{ __('Meta Description') }}
+											</label>
+										<textarea name="meta_descriptions" id="meta_description"
+											class="form-control" rows="5"
+											placeholder="{{ __('Enter Meta Description') }}"
+										></textarea>
 									</div>
 
                                     <div class="form-group">

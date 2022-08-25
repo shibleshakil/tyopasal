@@ -2,15 +2,12 @@
 @section('content')
 
 <div class="content-wrapper">
-    <div class="content-header row">
-        <div class="content-header-left col-md-6 col-12 mb-2">
-            <h3 class="content-header-title mb-0">{{__('Edit Sub category')}}</h3>
-        </div>
-        <div class="content-header-right col-md-6 col-12 mb-2">
-            <div class="row ">
-                <div class="col-12 text-right">
-                    <a href="{{ route ('back.subcategory.index') }}" class="btn btn-primary btn-icon"> <i
-                            class="fa fa-chevron-left"></i> Back</a>
+    <div class="content-header">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-sm-flex align-items-center justify-content-between">
+                    <h3 class="mb-0 pl-3"><b>{{ __('Update Sub category') }}</b> </h3>
+                    <a class="btn btn-primary btn-md" href="{{ route ('back.subcategory.index') }}"><i class="fa fa-chevron-left"></i> Back</a>
                 </div>
             </div>
         </div>

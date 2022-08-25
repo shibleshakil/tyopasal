@@ -6,8 +6,8 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-sm-flex align-items-center justify-content-between">
-                    <h3 class="mb-0 pl-3"><b>{{ __('Create Brand') }}</b> </h3>
-                    <a class="btn btn-primary btn-md" href="{{ route ('back.brand.index') }}"><i class="fa fa-chevron-left"></i> Back</a>
+                    <h3 class="mb-0 pl-3"><b>{{ __('Create FAQ') }}</b> </h3>
+                    <a class="btn btn-primary btn-md" href="{{ route ('back.faq.index') }}"><i class="fa fa-chevron-left"></i> Back</a>
                 </div>
             </div>
         </div>
@@ -20,38 +20,32 @@
                         <!-- Nested Row within Card Body -->
                         <div class="row justify-content-center">
                             <div class="col-lg-12">
-                                <form class="admin-form form" action="{{ route('back.brand.store') }}" method="POST"
+                                <form class="admin-form form" action="{{ route('back.faq.store') }}" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
                                     @include('alerts.alerts')
 
                                     <div class="form-group">
-										<label for="name">{{ __('Set Image') }} *</label>
-										<br>
-											<img class="admin-img" src="{{  asset('assets/images/placeholder.png') }}"
-												alt="No Image Found">
-										<br>
-										<span class="mt-1">{{ __('Image Size Should Be 110 x 81.') }}</span>
-									</div>
-
-									<div class="form-group position-relative">
-										<label class="file">
-											<input type="file"  accept="image/*"  class="upload-photo" name="photo" id="file"
-												aria-label="File browser example">
-											<span class="file-custom text-left">{{ __('Upload Image...') }}</span>
-										</label>
-                                    </div>
-
-									<div class="form-group">
-										<label for="name">{{ __('Name') }} *</label>
-										<input type="text" name="name" class="form-control item-name" id="name"
-											placeholder="{{ __('Enter Name') }}" value="{{ old('name') }}">
+										<label for="title">{{ __('Title') }} *</label>
+										<input type="text" name="title" class="form-control" id="title"
+											placeholder="{{ __('Enter Title') }}" value="{{ old('title') }}" required>
 									</div>
 
 									<div class="form-group">
-										<label for="slug">{{ __('Slug') }} *</label>
-										<input type="text" name="slug" class="form-control" id="slug"
-											placeholder="{{ __('Enter Slug') }}" value="{{ old('slug') }}">
+										<label for="category_id">{{ __('Select Category') }} *</label>
+										<select name="category_id" id="category_id" class="form-control" required>
+											<option value="" selected disabled>{{__('Select Category')}}</option>
+											@foreach(DB::table('fcategories')->whereStatus(1)->get() as $category)
+											<option value="{{ $category->id }}">{{ $category->name }}</option>
+											@endforeach
+										</select>
+									</div>
+
+									<div class="form-group">
+										<label for="details">{{ __('Details') }} *</label>
+										<textarea name="details" id="details" class="form-control" rows="5"
+											placeholder="{{ __('Enter Details') }}"
+											required>{{ old('details') }}</textarea>
 									</div>
 
                                     <div class="form-group">

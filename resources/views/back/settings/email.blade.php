@@ -1,18 +1,11 @@
 @extends('layouts.back')
 @section('content')
 <div class="content-wrapper">
-    <div class="content-header row">
-        <div class="content-header-left col-md-6 col-12 mb-2">
-            <h3 class="content-header-title mb-0">{{ __('Email') }}</h3>
-        </div>
-        <div class="content-header-right col-md-6 col-12 mb-2">
-            <div class="row breadcrumbs-top ">
-                <div class="breadcrumb-wrapper col-12">
-                    <ol class="breadcrumb pull-right">
-                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="#">Manage Site</a></li>
-                        <li class="breadcrumb-item active"><a href="#">{{ __('Email Settings') }}</a></li>
-                    </ol>
+    <div class="content-header">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-sm-flex align-items-center justify-content-between">
+                    <h3 class="mb-0 pl-3"><b>{{ __('Email') }}</b> </h3>
                 </div>
             </div>
         </div>
