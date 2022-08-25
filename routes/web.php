@@ -31,6 +31,9 @@ Route::group(['middleware' => 'adminlocalize'], function(){
         Route::get('/change-password/{token}', 'App\Http\Controllers\Auth\Back\ForgotController@showChangePassForm')->name('back.change.token');
         Route::post('/change-password-submit', 'App\Http\Controllers\Auth\Back\ForgotController@changepass')->name('back.change.password');
 
+        // vendor form
+        Route::get('/vendor-create', 'App\Http\Controllers\Back\AccountController@createVendor')->name('createVendor');
+        Route::post('/vendor-create', 'App\Http\Controllers\Back\AccountController@storeVendor')->name('storeVendor');
         //------------ DASHBOARD & PROFILE ------------
         Route::get('/', 'App\Http\Controllers\Back\AccountController@index')->name('back.dashboard');
         Route::get('/profile', 'App\Http\Controllers\Back\AccountController@profileForm')->name('back.profile');

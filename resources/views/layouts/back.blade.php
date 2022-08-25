@@ -36,7 +36,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset ('public/back/app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset ('public/back/app-assets/css/core/colors/palette-gradient.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset ('public/back/app-assets/fonts/simple-line-icons/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset ('public/back/app-assets/css/pages/timeline.cs')}}s">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('public/back/app-assets/css/plugins/forms/wizard.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('public/back/app-assets/css/pages/timeline.css')}}">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
@@ -408,11 +409,14 @@
     <script src="{{ asset ('public/back/app-assets/vendors/js/extensions/toastr.min.js') }}"></script>
     <script src="{{ asset ('public/back/app-assets/vendors/js/extensions/sweetalert2.all.min.js') }}"></script>
     <script src="{{ asset ('public/back/app-assets/vendors/js/tables/datatable/datatables.min.js') }}"></script>
+    <script src="{{ asset('public/back/app-assets/vendors/js/extensions/jquery.steps.min.js')}}"></script>
+    <script src="{{ asset('public/back/app-assets/vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->
     <script src="{{ asset ('public/back/app-assets/js/core/app-menu.js') }}"></script>
     <script src="{{ asset ('public/back/app-assets/js/core/app.js') }}"></script>
+    <script src="{{ asset('public/back/assets/js/forms_wizard.js')}}"></script>
     <script src="{{ asset ('public/back/assets/js/tagify.js') }}"></script>
     <script src="{{ asset ('public/back/assets/js/datatable.js') }}"></script>
     <script src="{{ asset ('public/back/assets/js/scripts.js') }}"></script>

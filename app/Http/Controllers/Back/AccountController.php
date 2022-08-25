@@ -16,6 +16,13 @@ class AccountController extends Controller
         $this->repository = $repository;
     }
 
+    public function createVendor(){
+        return view('vendor_form');
+    }
+    public function storeVendor(Request $request){
+        dd($request->all());
+    }
+
     public function index(){
         return view('back.dashboard.index');
     }
